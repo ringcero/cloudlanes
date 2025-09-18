@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cloudlanes - Architect Your Cloud Native Stack</title>
+    <meta name="description" content="cloudlanes, the lanes through the cloud-native maze">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Cloudflare Turnstile Script with onload callback -->
+   <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@400;500;600&amp;family=Roboto+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" async defer></script>
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFFFF; /* Pure white for a starker feel */
+            color: #1F2937; /* A slightly softer black */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .font-mono {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+                
+        .font-roboto-mono { font-family: 'Roboto Mono', monospace; }
+
+      .highlight-term {
+            font-family: 'Roboto Mono', monospace;
+            color: #ffffffff;
+            background-color: rgba(49, 49, 49, 0.51);
+            padding: 0.125rem 0.375rem;
+            border-radius: 0.25rem;
+            font-size: 0.9em;
+        }
+        .blueprint-grid {
+            background-image:
+                linear-gradient(to right, #F3F4F6 1px, transparent 1px),
+                linear-gradient(to bottom, #F3F4F6 1px, transparent 1px);
+            background-size: 5rem 5rem; /* Larger grid for a more spacious feel */
+        }
+        .btn-primary {
+            @apply font-semibold bg-blue-600 text-white rounded-md px-6 py-3 transition-all duration-200 ease-in-out;
+        }
+        .btn-primary:hover {
+            @apply bg-blue-700 transform -translate-y-0.5;
+        }
+        .btn-primary:disabled {
+            @apply bg-blue-400 cursor-not-allowed transform-none shadow-none;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/40 backdrop-blur-2xl   border-b border-gray-200 rounded-b-3xl shadow-sm">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+            <img src="icons8-right-lane-ends-100.png" alt="cloudlanes logo" class="h-5 w-auto">
+<!--svg fill="#000000" height="20px" width="auto" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-48.9 -48.9 586.78 586.78" xml-space="preserve" stroke="#000000" stroke-width="0.004889800000000001" transform="rotate(45)"><g id="SVGRepo_bgCarrier" stroke-width="0" transform="translate(0,0), scale(1)"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#000000" stroke-width="0.97796"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M409.49,485.75l-165-80.9l-165,80.9c-25.3,12.4-52.4-13.1-41.6-39.1l178.5-427.9c10.4-25,45.8-25,56.3,0l178.4,427.9 C461.89,472.55,434.79,498.15,409.49,485.75z"></path> </g> </g> </g></svg-->       
+         <span class="text-xl font-extrabold text-gray-800">cloudlanes</span>
+            </a>
+            <!--div class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-500">
+                <a href="#" class="hover:text-blue-600 transition-colors">Features</a>
+                <a href="#" class="hover:text-blue-600 transition-colors">Templates</a>
+                <a href="#" class="hover:text-blue-600 transition-colors">Pricing</a>
+            </div-->
+            <!--div class="hidden md:flex items-center space-x-4">
+                <a href="#" class="text-sm font-medium text-gray-500 hover:text-blue-600 transition-colors">Sign In</a>
+                <a href="#" class="btn-primary text-sm">
+                    Start Architecting
+                </a>
+            </div-->
+        </nav>
+    </header>
+
+    <main class="blueprint-grid -mt-5">
+      <div class="absolute inset-0 -z-10">
+                <!-- Diffuse blueish neon glow -->
+                <div class="absolute top-0 -left-48 w-[40rem] h-[40rem] bg-[#0f0f0f]/20 rounded-full filter blur-[150px] opacity-20"></div>
+                <div class="absolute -bottom-48 right-0 w-[30rem] h-[30rem] bg-indigo-600/10 rounded-full filter blur-[120px] opacity-20"></div>
+            </div>
+     <section class="relative pt-40 pb-28 md:pt-56 md:pb-40 max-w-7xl mx-auto overflow-hidden">
+               <div class="absolute inset-0 -z-10">
+                <!-- Diffuse blueish neon glow -->
+                <div class="absolute -bottom-48 right-0 w-[30rem] h-[30rem] bg-indigo-600/10 rounded-full filter blur-[120px] opacity-20"></div>
+            </div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-20 items-start">
+                    <div class="text-left lg:text-left" data-aos="fade-up">
+                        <h1 class="font-mono text-4xl md:text-6xl font-bold text-gray-900 leading-tight tracking-tighter">
+                            Architect. <br> Don't Guess.
+                        </h1>
+                        <p class="mt-8 max-w-2xl mx-auto lg:mx-0 text-lg md:text-xl text-gray-600">
+                            <span class="highlight-term">cloudlanes</span> transforms the complex CNCF landscape into a clear blueprint.
+                            Define your requirements and instantly generate a validated, production-ready stack.
+                        </p>
+                        <div class="mt-8">
+                           <form id="waitlist-form" action="https://submit-form.com/txFYTYnuV" class="max-w-md mx-auto lg:mx-0">
+                                <div class="flex items-center p-1.5 border border-gray-200 rounded-2xl backdrop-blur-xl  transition-all duration-200">
+                                    <label for="email-address" class="sr-only">Email address</label>
+                                    <input type="email" name="email" id="email-address" autocomplete="email" required class="flex-1 w-full px-4 py-2 bg-transparent border-0 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-0 text-base" placeholder="your@email.com">
+                                    <button type="submit" id="submit-button" class="btn-primary bg-[#2b2b2b] rounded-xl py-2 px-5 text-base text-white transition-all duration-200 hover:bg-black flex-shrink-0">
+                                        Notify Me
+                                    </button>
+                                </div>
+                                <p class="mt-3 text-sm text-gray-500">
+                                    Join the waitlist to get notified when we launch.
+                                </p>
+                           </form>
+                           <div id="turnstile-widget-container" class="mt-4 max-w-md mx-auto lg:mx-0"></div>
+                        </div>
+                    </div>
+                    <div class="relative bg-[#ffffff] backdrop-blur-sm p-8 rounded-  border-gray-900 font-mono text-sm" data-aos="fade-in" data-aos-delay="200">
+                        <!-- Corner border -->
+                        <div class="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-black  pointer-events-none"></div>
+                        <div class="absolute bottom-1 left-1 w-6 h-6 border-b-2 border-l-2 border-black pointer-events-none"></div>
+                    
+                        <!-- Content -->
+                        <p class="text-gray-600" data-aos="fade-right" data-aos-delay="300">// blueprint: iot_edge_stack</p>
+                        <div class="pl-4 sm:pl-6 border-l-2 border-gray-400 ">
+                        <div class="mt-6 space-y-4 text-gray-700">
+                            <div data-aos="fade-up" data-aos-delay="400">
+                            <p class="font-semibold text-gray-800 flex items-center">
+                                <img src="zicons/platform-kubernetes-svgrepo-com.svg" alt="Orchestration Icon" class="w-4 h-4 mr-2" />
+                                Orchestration
+                            </p>
+                            <p class="pl-1">└ K3s <span class="text-gray-500">- Lightweight Kubernetes</span></p>
+                            </div>
+
+                            <div data-aos="fade-up" data-aos-delay="500">
+                             <p class="font-semibold text-gray-800 flex items-center">
+                                <img src="zicons/storage-svgrepo-com.svg" alt="Orchestration Icon" class="w-4 h-4 mr-2" />
+                                Storage</p>
+                            <p class="pl-1">└ Longhorn <span class="text-gray-500">- Distributed block storage</span></p>
+                            </div>
+                            
+                            <div data-aos="fade-up" data-aos-delay="600">
+                            <p class="font-semibold text-gray-800 flex items-center">
+                                <img src="zicons/security-svgrepo-com.svg" alt="Orchestration Icon" class="w-4 h-4 mr-2" />
+                                Security Policy</p>
+                            <p class="pl-1">└ Kyverno <span class="text-gray-500">- Kubernetes-native policy engine</span></p>
+                            </div>
+                            <div data-aos="fade-up" data-aos-delay="700">
+                            <p class="font-semibold text-gray-800 flex items-centere">
+                            <img src="zicons/graph-svgrepo-com.svg" class="w-4 h-4 mr-2"/>Observability</p>
+                            <p class="pl-1">└ Prometheus + Grafana <span class="text-gray-500">- Industry standard</span></p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class=" max-w-7xl mx-auto py-24 md:py-32 bg-[#f4f4f4] rounded-t-3xl border-t border-gray-300 shadow-sm">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
+                    <p class="font-mono text-sm text-[#0000fe] tracking-widest uppercase">The Framework</p>
+                    <h2 class="mt-4 text-3xl md:text-4xl font-semibold text-gray-900 tracking-tight">
+                        From Analysis Paralysis to Production Ready
+                    </h2>
+                    <p class="mt-6 text-lg text-gray-600">
+                        Stop gambling on mismatched tools. <span class="highlight-term">cloudlanes</span>
+ provides a structured path from high-level requirements to a validated, interoperable stack.
+                    </p>
+                </div>
+                <div class="mt-20 grid md:grid-cols-3 gap-x-12 gap-y-16">
+                    <div class="bg-white p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-xl font-semibold text-gray-900">1. Choice Overload</h3>
+                        <p class="mt-3 text-gray-600">
+                            A maze of hundreds of CNCF tools with no clear guidance leads to poor decisions and wasted engineering hours.
+                        </p>
+                        <div class="mt-6 border-t pt-6">
+                            <div class="flex items-start space-x-3">
+                                <svg class="h-6 w-6 text-blue-600 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Start with Vetted Templates</h4>
+                                    <p class="text-gray-600">Instantly generate proven architectures for common use-cases like SaaS, IoT, and FinTech.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   <div class="bg-white p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                         <h3 class="text-xl font-semibold text-gray-900">2. Integration Risk</h3>
+                         <p class="mt-3 text-gray-600">
+                            Forcing a dozen different open-source tools to work together is a gamble that rarely pays off without significant pain.
+                         </p>
+                         <div class="mt-6 border-t pt-6">
+                            <div class="flex items-start space-x-3">
+                                <svg class="h-6 w-6 text-blue-600 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Get Clear Rationale</h4>
+                                    <p class="text-gray-600">Understand *why* each tool was chosen and how it interoperates with the rest of the stack.</p>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                   <div class="bg-white p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+                         <h3 class="text-xl font-semibold text-gray-900">3. Knowledge Gaps</h3>
+                         <p class="mt-3 text-gray-600">
+                            No single engineer can be an expert in the entire landscape, leading to suboptimal choices based on limited knowledge.
+                         </p>
+                         <div class="mt-6 border-t pt-6">
+                            <div class="flex items-start space-x-3">
+                                <svg class="h-6 w-6 text-blue-600 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Leverage AI Analysis</h4>
+                                    <p class="text-gray-600">Translate your plain-text goals into a concrete set of technical components, validated by the system.</p>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class=" bg-white rounded-t-2xl border-t border-gray-300 -mt-4">
+        <div class="container mx-auto px-6 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center text-sm">
+                <p class="text-gray-500">&copy; 2025 <span class="highlight-term">cloudlanes</span>
+, Inc.</p>
+                <div class="flex space-x-6 text-gray-500 mt-4 md:mt-0">
+                  
+                    <a href="#" class="hover:text-blue-600 transition-colors">GitHub</a>
+                    <a href="#" class="hover:text-blue-600 transition-colors">Status</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true
+      });
+    </script>
+
+<script>
+  // State variables to manage Turnstile's status
+  let isTurnstileVerified = false;
+  let isTurnstileRendering = false;
+
+  const waitlistForm = document.getElementById('waitlist-form');
+  const submitButton = document.getElementById('submit-button');
+  const emailInput = document.getElementById('email-address');
+
+  /**
+   * This function handles the actual AJAX submission of the form.
+   */
+  async function handleFormSubmission() {
+    const action = waitlistForm.action;
+    const turnstileInput = document.querySelector('[name="cf-turnstile-response"]');
+    const turnstileResponse = turnstileInput ? turnstileInput.value : null;
+
+    const payload = {
+        email: emailInput.value,
+        "cf-turnstile-response": turnstileResponse
+    };
+
+    submitButton.textContent = 'Submitting...';
+    submitButton.disabled = true;
+
+    try {
+        const response = await fetch(action, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify(payload),
+        });
+
+        const formContainer = waitlistForm.parentElement;
+
+        if (response.ok) {
+            formContainer.innerHTML = `
+                <div class="text-center w-full bg-green-50 border border-green-200 rounded-lg py-4 px-4">
+                    <p class="text-base text-green-800 font-medium">Thanks, you're on the list!</p>
+                </div>
+            `;
+        } else {
+            throw new Error('Form submission failed.');
+        }
+    } catch (error) {
+        const formContainer = waitlistForm.parentElement;
+        formContainer.innerHTML = `
+             <div class="text-center w-full bg-red-50 border border-red-200 rounded-lg py-4 px-4">
+                <p class="text-base text-red-800 font-medium">Oops! Please try again.</p>
+            </div>
+        `;
+        console.error('Submission error:', error);
+    }
+  }
+
+  /**
+   * Renders the Turnstile widget and locks the form while it's verifying.
+   * @param {function} [onSuccessCallback] - Optional function to run after successful verification.
+   */
+  function renderTurnstile(onSuccessCallback) {
+    if (isTurnstileRendering) {
+      return;
+    }
+    isTurnstileRendering = true;
+    
+    const container = document.getElementById('turnstile-widget-container');
+    if (container) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Verifying...';
+      
+      turnstile.render(container, {
+        sitekey: '0x4AAAAAAABvRbXQF4cQb7fVj', // This is a dummy sitekey from the example
+        theme: 'light', // Set to light to match the page design
+        size: 'normal',
+        callback: function(token) {
+          isTurnstileVerified = true;
+          submitButton.disabled = false;
+          submitButton.textContent = 'Notify Me';
+          if (typeof onSuccessCallback === 'function') {
+            onSuccessCallback();
+          }
+        },
+        'error-callback': function() {
+          isTurnstileVerified = false;
+          submitButton.disabled = true;
+          submitButton.textContent = 'Verification Failed';
+        }
+      });
+    }
+  }
+
+  // This is the main function that runs when the Turnstile script is ready.
+  function onloadTurnstileCallback() {
+    // Proactively render Turnstile when the user focuses on the email field.
+    if (emailInput) {
+      emailInput.addEventListener('focus', () => renderTurnstile(null), { once: true });
+    }
+
+    if (waitlistForm) {
+      waitlistForm.addEventListener('submit', (e) => {
+        e.preventDefault(); // Always prevent the default submission behavior.
+        
+        if (isTurnstileVerified) {
+          handleFormSubmission();
+        } else {
+          renderTurnstile(handleFormSubmission);
+        }
+      });
+    }
+  }
+</script>
+
+</body>
+</html>
