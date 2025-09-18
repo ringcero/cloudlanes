@@ -101,7 +101,7 @@
                             Define your requirements and instantly generate a validated, production-ready stack.
                         </p>
                         <div class="mt-8">
-                           <form id="waitlist-form" action="https://submit-form.com/txFYTYnuV" class="max-w-md mx-auto lg:mx-0">
+                           <form id="waitlist-form" action="https://submit-form.com/cGMDzUDRo" class="max-w-md mx-auto lg:mx-0">
                                 <div class="flex items-center p-1.5 border border-gray-200 rounded-2xl backdrop-blur-xl  transition-all duration-200">
                                     <label for="email-address" class="sr-only">Email address</label>
                                     <input type="email" name="email" id="email-address" autocomplete="email" required class="flex-1 w-full px-4 py-2 bg-transparent border-0 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-0 text-base" placeholder="your@email.com">
@@ -284,8 +284,8 @@
 
         if (response.ok) {
             formContainer.innerHTML = `
-                <div class="text-center w-full bg-green-50 border border-green-200 rounded-lg py-4 px-4">
-                    <p class="text-base text-green-800 font-medium">Thanks, you're on the list!</p>
+                <div class="text-center w-full bg-[#1a1a1a] border border-black rounded-lg py-3 px-4">
+                    <p class="text-base text-blue-600 font-medium">Thanks, you're on the list!</p>
                 </div>
             `;
         } else {
@@ -320,7 +320,7 @@
       turnstile.render(container, {
         sitekey: '0x4AAAAAABvRbXQF4cQb7fVj', // This is a dummy sitekey from the example
         theme: 'light', // Set to light to match the page design
-        size: 'normal',
+        size: 'flexible',
         callback: function(token) {
           isTurnstileVerified = true;
           submitButton.disabled = false;
